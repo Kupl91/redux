@@ -1,6 +1,6 @@
-import { error } from "console";
-import { IUser } from "../../models/IUser"
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { IUser } from "../../models/IUser";
+import { PayloadAction, createSlice, AnyAction } from "@reduxjs/toolkit";
+import { fetchUsers } from "./ActionCreators";
 
 interface UserState {
     users: IUser[];
@@ -8,31 +8,30 @@ interface UserState {
     error: string;
 }
 
-
-const initialState: UserState ={
+const initialState: UserState = {
     users: [],
     isLoading: false,
     error: ''
-
 }
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {
-        usersFetching(state) {
-            state.isLoading = true
-        },
-        usersFetchingSuccess(state, action: PayloadAction<IUser[]>) {
-            state.isLoading = false
-            state.error = ''
-            state.users = action.payload
-        },
-        usersFetchingError(state, action: PayloadAction<string>) {
-            state.isLoading = true
-            state.error = action.payload
-        }
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(fetchUsers.fulfilled, (state: UserState, action: PayloadAction<IUser[]>) => {
+            state.isLoading = false;
+            state.error = '';
+            state.users = action.payload;
+        });
+        builder.addCase(fetchUsers.pending, (state: UserState) => {
+            state.isLoading = true;
+        });
+        builder.addCase(fetchUsers.rejected, (state: UserState, action: AnyAction) => {
+            state.isLoading = false;
+            state.error = action.error.message;
+        });
     }
-})
+});
 
 export default userSlice.reducer;

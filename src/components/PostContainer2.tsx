@@ -2,19 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { postAPI } from '../services/PostService';
 import PostItem from './PostItem';
 
-const PostContainer = () => {
+const PostContainer2 = () => {
     const [limit, setLiemit] = useState(10)
-    const { data: posts, error, isLoading, refetch } = postAPI.useFetchAllPostsQuery(limit)
+    const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
 
-    useEffect(() => {
-        // setTimeout (() => {
-        //     setLiemit(3)
-        // }, 2000)
-    }, [])
+    
     return (
         <div>
             <div className='post_list'>
-                <button onClick={() => refetch()}>REFETCH</button>
                 {isLoading && <h1>Loading...</h1>}
                 {error && <h1>Error</h1>}
                 {posts && posts.map(post =>
@@ -25,4 +20,4 @@ const PostContainer = () => {
     );
 }
 
-export default PostContainer;
+export default PostContainer2;

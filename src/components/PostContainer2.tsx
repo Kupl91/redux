@@ -3,7 +3,7 @@ import { postAPI } from '../services/PostService';
 import PostItem from './PostItem';
 
 const PostContainer2 = () => {
-    const [limit, setLiemit] = useState(10)
+    const [limit, setLiemit] = useState(100)
     const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(limit)
 
     
@@ -12,9 +12,9 @@ const PostContainer2 = () => {
             <div className='post_list'>
                 {isLoading && <h1>Loading...</h1>}
                 {error && <h1>Error</h1>}
-                {posts && posts.map(post =>
+                {/* {posts && posts.map(post =>
                     <PostItem key={post.id} post={post} />
-                )}
+                )} */}
             </div>
         </div>
     );

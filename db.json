@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": "2",
+      "title": "redux"
+    },
+    {
+      "id": "3",
+      "title": "Understanding JavaScript"
+    },
+    {
+      "id": "4",
+      "title": "React Hooks in Depth"
+    },
+    {
+      "id": "5",
+      "title": "Advanced TypeScript"
+    },
+    {
+      "id": "6",
+      "title": "Frontend Best Practices"
+    },
+    {
+      "id": "7",
+      "title": "CSS Tips and Tricks"
+    },
+    {
+      "id": "8",
+      "title": "Modern Web Development"
+    },
+    {
+      "id": "9",
+      "title": "Introduction to APIs"
+    },
+    {
+      "id": "10",
+      "title": "State Management with Redux"
+    },
+    {
+      "id": "11",
+      "title": "Optimizing React Performance"
+    },
+    {
+      "id": 1729527823649,
+      "title": "ffdf",
+      "body": "ffdf"
+    },
+    {
+      "id": 1729527884481,
+      "title": "new post",
+      "body": "new post"
+    },
+    {
+      "id": 1729536967650,
+      "title": "new post",
+      "body": "new post"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": null
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": null
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
